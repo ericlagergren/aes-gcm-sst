@@ -1,0 +1,17 @@
+[package]
+name = "aes-gcm-sst"
+version = "0.1.0"
+edition = "2021"
+readme = "README.md"
+repository = "https://github.com/ericlagergren/stream-rs"
+keywords = [ "aes-gcm", "aes-gcm-sst" ]
+categories = [ "cryptography", "no-std" ]
+
+[features]
+default = []
+
+[dependencies]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
