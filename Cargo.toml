@@ -7,14 +7,46 @@ description = """
 """
 license = "BSD-3-Clause"
 readme = "README.md"
-repository = "https://github.com/ericlagergren/stream-rs"
+repository = "https://github.com/ericlagergren/aes-gcm-sst"
 keywords = [ "aes-gcm", "aes-gcm-sst" ]
-categories = [ "cryptography", "no-std" ]
+categories = [ "cryptography", "no-std", "no-std::no-alloc" ]
+include = [
+	"LICENSE",
+	"README.md",
+]
+
+[lints.rust]
+# missing_docs = "warn"
+rust_2018_idioms = "warn"
+unused_lifetimes = "warn"
+unused_qualifications = "warn"
+
+[lints.clippy]
+cast_lossless = "warn"
+cast_possible_wrap = "warn"
+cast_precision_loss = "warn"
+cast_sign_loss = "warn"
+panic = "warn"
+unwrap_used = "warn"
+wildcard_imports = "warn"
 
 [features]
 default = []
 
+# Enable allocations.
+alloc = [
+	"gcm-sst/alloc",
+]
+
+# Enable libstd.
+std = [
+	"gcm-sst/alloc",
+]
+
 [dependencies]
+aes = { version = "0.8", default-features = false }
+gcm-sst = { path = "/Users/eric/git/gcm-sst", default-features = false }
+typenum = { version = "1", default-features = false }
 
 [package.metadata.docs.rs]
 all-features = true
